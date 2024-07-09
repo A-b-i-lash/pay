@@ -2,114 +2,117 @@ package com.example.pay.DTO;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+
 @Entity
 public class EmployeeDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
-    private String EmployeeCode;
-    private String EmployeeName;
-    private Date DOJ;
-    private String Grade;
-    private String Designation;
-    private String Department;
-    private String Location;
-    private String BankName;
-    private Long AccountNumber;
-    private String PanNumber;
-    private String PfNumber;
-    private String UanNumber;
-    private String EsicNumber;
-
-
+    private Integer id;
+    @Column(unique = true, nullable = false)
+    private String employeeCode;
+    private String employeeName;
+    private Date doj;
+    private String grade;
+    private String designation;
+    private String department;
+    private String location;
+    private String bankName;
+    private Long accountNumber;
+    private String panNumber;
+    private String pfNumber;
+    private String uanNumber;
+    private String esicNumber;
     public Integer getId() {
-        return Id;
+        return id;
     }
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
     public String getEmployeeCode() {
-        return EmployeeCode;
+        return employeeCode;
     }
     public void setEmployeeCode(String employeeCode) {
-        EmployeeCode = employeeCode;
+        this.employeeCode = employeeCode;
     }
     public String getEmployeeName() {
-        return EmployeeName;
+        return employeeName;
     }
     public void setEmployeeName(String employeeName) {
-        EmployeeName = employeeName;
+        this.employeeName = employeeName;
     }
-    public Date getDOJ() {
-        return DOJ;
+    public Date getDoj() {
+        return doj;
     }
-    public void setDOJ(Date dOJ) {
-        DOJ = dOJ;
+    public void setDoj(Date doj) {
+        this.doj = doj;
     }
     public String getGrade() {
-        return Grade;
+        return grade;
     }
     public void setGrade(String grade) {
-        Grade = grade;
+        this.grade = grade;
     }
     public String getDesignation() {
-        return Designation;
+        return designation;
     }
     public void setDesignation(String designation) {
-        Designation = designation;
+        this.designation = designation;
     }
     public String getDepartment() {
-        return Department;
+        return department;
     }
     public void setDepartment(String department) {
-        Department = department;
+        this.department = department;
     }
     public String getLocation() {
-        return Location;
+        return location;
     }
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
     public String getBankName() {
-        return BankName;
+        return bankName;
     }
     public void setBankName(String bankName) {
-        BankName = bankName;
+        this.bankName = bankName;
     }
     public Long getAccountNumber() {
-        return AccountNumber;
+        return accountNumber;
     }
     public void setAccountNumber(Long accountNumber) {
-        AccountNumber = accountNumber;
+        this.accountNumber = accountNumber;
     }
     public String getPanNumber() {
-        return PanNumber;
+        return panNumber;
     }
     public void setPanNumber(String panNumber) {
-        PanNumber = panNumber;
+        this.panNumber = panNumber;
     }
     public String getPfNumber() {
-        return PfNumber;
+        return pfNumber;
     }
     public void setPfNumber(String pfNumber) {
-        PfNumber = pfNumber;
+        this.pfNumber = pfNumber;
     }
     public String getUanNumber() {
-        return UanNumber;
+        return uanNumber;
     }
     public void setUanNumber(String uanNumber) {
-        UanNumber = uanNumber;
+        this.uanNumber = uanNumber;
     }
     public String getEsicNumber() {
-        return EsicNumber;
+        return esicNumber;
     }
     public void setEsicNumber(String esicNumber) {
-        EsicNumber = esicNumber;
+        this.esicNumber = esicNumber;
     }
+
+    
     
 }

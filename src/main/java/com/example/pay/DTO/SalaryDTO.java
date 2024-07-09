@@ -1,160 +1,182 @@
 package com.example.pay.DTO;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class SalaryDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    // Employee
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")
+    private EmployeeDTO employeeDTO;
+    private String Month;
     //Working
-    private int WorkingDays;
-    private int PresentDays;
-    private int AbsentDays;
+    private double workingDays;
+    private double presentDays;
+    private double absentDays;
     //Earnings
-    private int BasicSalary;
-    private int HraAllowance;
-    private int MedicalReimbursement;
-    private int CommunicationAllowance;
-    private int LtaAllowance;
-    private int SpecialAllowance;
-    private int IncentiveAllowance;
+    private double basicSalary;
+    private double hraAllowance;
+    private double medicalReimbursement;
+    private double communicationAllowance;
+    private double ltaAllowance;
+    private double specialAllowance;
+    private double incentiveAllowance;
     //Deduction
-    private int ProvidentFund;
-    private int Esic;
-    private int ProfessionalTax;
-    private int WelfareFund;
-    private int AdvancePayment;
-    private int DamagePayment;
+    private double providentFund;
+    private double esic;
+    private double professionalTax;
+    private double welfareFund;
+    private double advancePayment;
+    private double damagePayment;
     //Total
-    private int TotalEarnings;
-    private int TotalDeductions;
-    private int NetSalary;
-
-
+    private double totalEarnings;
+    private double totalDeductions;
+    private double netSalary;
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public int getWorkingDays() {
-        return WorkingDays;
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
     }
-    public void setWorkingDays(int workingDays) {
-        WorkingDays = workingDays;
+    public void setEmployeeDTO(EmployeeDTO employeeDTO) {
+        this.employeeDTO = employeeDTO;
     }
-    public int getPresentDays() {
-        return PresentDays;
+    public String getMonth() {
+        return Month;
     }
-    public void setPresentDays(int presentDays) {
-        PresentDays = presentDays;
+    public void setMonth(String month) {
+        Month = month;
     }
-    public int getAbsentDays() {
-        return AbsentDays;
+    public double getWorkingDays() {
+        return workingDays;
     }
-    public void setAbsentDays(int absentDays) {
-        AbsentDays = absentDays;
+    public void setWorkingDays(double workingDays) {
+        this.workingDays = workingDays;
     }
-    public int getBasicSalary() {
-        return BasicSalary;
+    public double getPresentDays() {
+        return presentDays;
     }
-    public void setBasicSalary(int basicSalary) {
-        BasicSalary = basicSalary;
+    public void setPresentDays(double presentDays) {
+        this.presentDays = presentDays;
     }
-    public int getHraAllowance() {
-        return HraAllowance;
+    public double getAbsentDays() {
+        return absentDays;
     }
-    public void setHraAllowance(int hraAllowance) {
-        HraAllowance = hraAllowance;
+    public void setAbsentDays(double absentDays) {
+        this.absentDays = absentDays;
     }
-    public int getMedicalReimbursement() {
-        return MedicalReimbursement;
+    public double getBasicSalary() {
+        return basicSalary;
     }
-    public void setMedicalReimbursement(int medicalReimbursement) {
-        MedicalReimbursement = medicalReimbursement;
+    public void setBasicSalary(double basicSalary) {
+        this.basicSalary = basicSalary;
     }
-    public int getCommunicationAllowance() {
-        return CommunicationAllowance;
+    public double getHraAllowance() {
+        return hraAllowance;
     }
-    public void setCommunicationAllowance(int communicationAllowance) {
-        CommunicationAllowance = communicationAllowance;
+    public void setHraAllowance(double hraAllowance) {
+        this.hraAllowance = hraAllowance;
     }
-    public int getLtaAllowance() {
-        return LtaAllowance;
+    public double getMedicalReimbursement() {
+        return medicalReimbursement;
     }
-    public void setLtaAllowance(int ltaAllowance) {
-        LtaAllowance = ltaAllowance;
+    public void setMedicalReimbursement(double medicalReimbursement) {
+        this.medicalReimbursement = medicalReimbursement;
     }
-    public int getSpecialAllowance() {
-        return SpecialAllowance;
+    public double getCommunicationAllowance() {
+        return communicationAllowance;
     }
-    public void setSpecialAllowance(int specialAllowance) {
-        SpecialAllowance = specialAllowance;
+    public void setCommunicationAllowance(double communicationAllowance) {
+        this.communicationAllowance = communicationAllowance;
     }
-    public int getIncentiveAllowance() {
-        return IncentiveAllowance;
+    public double getLtaAllowance() {
+        return ltaAllowance;
     }
-    public void setIncentiveAllowance(int incentiveAllowance) {
-        IncentiveAllowance = incentiveAllowance;
+    public void setLtaAllowance(double ltaAllowance) {
+        this.ltaAllowance = ltaAllowance;
     }
-    public int getProvidentFund() {
-        return ProvidentFund;
+    public double getSpecialAllowance() {
+        return specialAllowance;
     }
-    public void setProvidentFund(int providentFund) {
-        ProvidentFund = providentFund;
+    public void setSpecialAllowance(double specialAllowance) {
+        this.specialAllowance = specialAllowance;
     }
-    public int getEsic() {
-        return Esic;
+    public double getIncentiveAllowance() {
+        return incentiveAllowance;
     }
-    public void setEsic(int esic) {
-        Esic = esic;
+    public void setIncentiveAllowance(double incentiveAllowance) {
+        this.incentiveAllowance = incentiveAllowance;
     }
-    public int getProfessionalTax() {
-        return ProfessionalTax;
+    public double getProvidentFund() {
+        return providentFund;
     }
-    public void setProfessionalTax(int professionalTax) {
-        ProfessionalTax = professionalTax;
+    public void setProvidentFund(double providentFund) {
+        this.providentFund = providentFund;
     }
-    public int getWelfareFund() {
-        return WelfareFund;
+    public double getEsic() {
+        return esic;
     }
-    public void setWelfareFund(int welfareFund) {
-        WelfareFund = welfareFund;
+    public void setEsic(double esic) {
+        this.esic = esic;
     }
-    public int getAdvancePayment() {
-        return AdvancePayment;
+    public double getProfessionalTax() {
+        return professionalTax;
     }
-    public void setAdvancePayment(int advancePayment) {
-        AdvancePayment = advancePayment;
+    public void setProfessionalTax(double professionalTax) {
+        this.professionalTax = professionalTax;
     }
-    public int getDamagePayment() {
-        return DamagePayment;
+    public double getWelfareFund() {
+        return welfareFund;
     }
-    public void setDamagePayment(int damagePayment) {
-        DamagePayment = damagePayment;
+    public void setWelfareFund(double welfareFund) {
+        this.welfareFund = welfareFund;
     }
-    public int getTotalEarnings() {
-        return TotalEarnings;
+    public double getAdvancePayment() {
+        return advancePayment;
     }
-    public void setTotalEarnings(int totalEarnings) {
-        TotalEarnings = totalEarnings;
+    public void setAdvancePayment(double advancePayment) {
+        this.advancePayment = advancePayment;
     }
-    public int getTotalDeductions() {
-        return TotalDeductions;
+    public double getDamagePayment() {
+        return damagePayment;
     }
-    public void setTotalDeductions(int totalDeductions) {
-        TotalDeductions = totalDeductions;
+    public void setDamagePayment(double damagePayment) {
+        this.damagePayment = damagePayment;
     }
-    public int getNetSalary() {
-        return NetSalary;
+    public double getTotalEarnings() {
+        return totalEarnings;
     }
-    public void setNetSalary(int netSalary) {
-        NetSalary = netSalary;
+    public void setTotalEarnings(double totalEarnings) {
+        this.totalEarnings = totalEarnings;
     }
-    
+    public double getTotalDeductions() {
+        return totalDeductions;
+    }
+    public void setTotalDeductions(double totalDeductions) {
+        this.totalDeductions = totalDeductions;
+    }
+    public double getNetSalary() {
+        return netSalary;
+    }
+    public void setNetSalary(double netSalary2) {
+        this.netSalary = netSalary2;
+    }
 
+   
+
+    
 }
