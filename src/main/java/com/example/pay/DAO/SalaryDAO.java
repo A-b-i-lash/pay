@@ -22,8 +22,8 @@ public class SalaryDAO {
     public SalaryDTO AddDetails(@RequestBody SalaryDTO Add){
         double presentDays = Add.getWorkingDays() - Add.getAbsentDays();
         Add.setPresentDays(presentDays);
-        double perDaySalary = Math.round(15000 / 26);
-        
+        double perDaySalary = 15000.00 / 26.00;
+        System.out.println(perDaySalary);
         double totalEarnings = perDaySalary * presentDays;
         Add.setTotalEarnings(totalEarnings);
         double basicSalary = (totalEarnings / 100) * 60;
