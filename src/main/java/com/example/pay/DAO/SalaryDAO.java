@@ -25,32 +25,32 @@ public class SalaryDAO {
         double perDaySalary = 15000.00 / 26.00;
         System.out.println(perDaySalary);
         double totalEarnings = perDaySalary * presentDays;
-        Add.setTotalEarnings(totalEarnings);
+        Add.setTotalEarnings(Math.round(totalEarnings));
         double basicSalary = (totalEarnings / 100) * 60;
-        Add.setBasicSalary(basicSalary);
+        Add.setBasicSalary(Math.round(basicSalary));
         double hraAllowance = (basicSalary / 100) * 25;
-        Add.setHraAllowance(hraAllowance);
+        Add.setHraAllowance(Math.round(hraAllowance));
         double medicalReimbursement = (basicSalary / 100) * 6.67;
-        Add.setMedicalReimbursement(medicalReimbursement);
+        Add.setMedicalReimbursement(Math.round(medicalReimbursement));
         double communicationAllowance = (basicSalary / 100) * 5;
-        Add.setCommunicationAllowance(communicationAllowance);
+        Add.setCommunicationAllowance(Math.round(communicationAllowance));
         double ltaAllowance = (basicSalary / 100) * 10;
-        Add.setLtaAllowance(ltaAllowance);
+        Add.setLtaAllowance(Math.round(ltaAllowance));
         double specialAllowance = (basicSalary / 100) * 10;
-        Add.setSpecialAllowance(specialAllowance);
+        Add.setSpecialAllowance(Math.round(specialAllowance));
         double incentiveAllowance = (basicSalary / 100) * 10;
-        Add.setIncentiveAllowance(incentiveAllowance);
+        Add.setIncentiveAllowance(Math.round(incentiveAllowance));
 
         double providentFund = (basicSalary / 100) * 12;
-        Add.setProvidentFund(providentFund);
+        Add.setProvidentFund(Math.round(providentFund));
         double esic = (basicSalary / 100) * 8;
-        Add.setEsic(esic);
+        Add.setEsic(Math.round(esic));
         Add.setWelfareFund(100);
 
         double totalDeductions = providentFund + esic + 100;
-        Add.setTotalDeductions(totalDeductions);
+        Add.setTotalDeductions(Math.round(totalDeductions));
         double netSalary = totalEarnings - totalDeductions;
-        Add.setNetSalary(netSalary);
+        Add.setNetSalary(Math.round(netSalary));
 
 
         return repo.save(Add);
