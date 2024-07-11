@@ -1,10 +1,5 @@
 package com.example.pay.Contoller;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.pay.DAO.EmployeeDAO;
-import com.example.pay.DTO.EmployeeDTO;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.pay.DAO.EmployeeDAO;
+import com.example.pay.DTO.EmployeeDTO;
 
 
 @RestController

@@ -1,23 +1,28 @@
 package com.example.pay.DTO;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class SalaryDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    // Employee
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")
+    // // Employee
+    // @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    // @JoinColumn(name = "employeeCode",referencedColumnName = "employeeCode")
+    @ManyToOne
+    @JoinColumn(name = "employeeCode")
+    @JsonBackReference
     private EmployeeDTO employeeDTO;
     private String Month;
     //Working
@@ -172,11 +177,8 @@ public class SalaryDTO {
     public double getNetSalary() {
         return netSalary;
     }
-    public void setNetSalary(double netSalary2) {
-        this.netSalary = netSalary2;
+    public void setNetSalary(double netSalary) {
+        this.netSalary = netSalary;
     }
-
-   
-
     
 }

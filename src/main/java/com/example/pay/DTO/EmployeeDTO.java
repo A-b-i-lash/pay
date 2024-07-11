@@ -1,12 +1,19 @@
 package com.example.pay.DTO;
 
 import java.sql.Date;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import jakarta.persistence.OneToMany;
 
 
 @Entity
@@ -28,6 +35,11 @@ public class EmployeeDTO {
     private String pfNumber;
     private String uanNumber;
     private String esicNumber;
+    // Salary
+    @OneToMany(mappedBy = "employeeDTO",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonManagedReference
+    // @JoinColumn(name = "salarcode",referencedColumnName = "id")
+    private List<SalaryDTO> salaryDTO;
     public Integer getId() {
         return id;
     }
@@ -112,7 +124,12 @@ public class EmployeeDTO {
     public void setEsicNumber(String esicNumber) {
         this.esicNumber = esicNumber;
     }
+    public List<SalaryDTO> getSalaryDTO() {
+        return salaryDTO;
+    }
+    public void setSalaryDTO(List<SalaryDTO> salaryDTO) {
+        this.salaryDTO = salaryDTO;
+    }
 
-    
-    
+
 }
