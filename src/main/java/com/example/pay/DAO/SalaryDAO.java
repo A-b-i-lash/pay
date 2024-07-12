@@ -47,8 +47,6 @@ public class SalaryDAO {
         Add.setTotalDeductions(Math.round(totalDeductions));
         double netSalary = totalEarnings - totalDeductions;
         Add.setNetSalary(Math.round(netSalary));
-
-
         return repo.save(Add);
     }
 
